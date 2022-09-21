@@ -11,5 +11,6 @@ The parser is probably the most significant component of the compiler. Parser ha
 [here](https://drive.google.com/file/d/1ujgcS7GoI-zu56FxhfkTAvEgZ6JT7Dxl/view).
 
 ## Symbol Table
+The symbol table is used to perform the most difficult type of error checking - semantic analysis. But conceptually, it is not too complicated. We maintain a table for storing information about variables and methods, such as identifiers, types, parameters (if any), return values (if any) and so on. As we parse the source code and find, for example, a method declaration, we store information about it in our symbol table. Similarly, if we notice that the source code contains a call to a method, we access the table and search for that method to ensure that it has been declared. If this is not the case, we issue an error. We validate variables and objects in a similar manner. Once the source code passes this stage, it can be considered error-free. We then proceed to the final stage, where we perform the actual translation from Jack to virtual machine code.
 
 ## Code Generation
